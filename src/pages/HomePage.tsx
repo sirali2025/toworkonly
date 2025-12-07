@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
+import Integrations from '../components/Integrations';
 
 const pageTransition = {
   initial: { opacity: 0, y: 20 },
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <motion.div {...pageTransition}>
       <Hero />
+      <Integrations />
     </motion.div>
   );
 }

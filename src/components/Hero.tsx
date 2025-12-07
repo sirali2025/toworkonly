@@ -34,17 +34,18 @@ export default function Hero() {
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-white to-blue-50">
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/30 to-orange-400/20 rounded-full blur-3xl animate-float"
+          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/40 to-orange-400/30 rounded-full blur-3xl animate-float"
           style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}
         ></div>
         <div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-orange-300/20 to-orange-500/30 rounded-full blur-3xl animate-float-delayed"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-blue-400/15 rounded-full blur-3xl animate-float-delayed"
           style={{ transform: `translateY(${parallaxOffset * 0.5}px)` }}
         ></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-orange-100/20 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-300/10 to-blue-500/15 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-orange-100/15 to-blue-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="cinematic-grid absolute inset-0 opacity-[0.02]"></div>
@@ -91,6 +92,11 @@ export default function Hero() {
             Smart workflows, automation, and AI tools designed to save time, increase revenue, and delight your customers.
           </p>
 
+          <p className="text-sm md:text-base text-gray-600 flex items-center justify-center gap-2 animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
+            <span className="w-2 h-2 bg-gradient-to-r from-orange-500 to-blue-600 rounded-full"></span>
+            Powered by advanced AI automation
+          </p>
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8 animate-slide-in-up-delayed-2">
             <button
               onClick={() => {
@@ -110,15 +116,15 @@ export default function Hero() {
         </div>
 
         <div className="floating-elements">
-          <div className="floating-card floating-card-1 animate-slide-in-left">
+          <div className="floating-card floating-card-1 animate-slide-in-left hover:border-orange-400 hover:bg-orange-50/50">
             <Sparkles className="w-8 h-8 text-orange-500" />
             <span className="text-sm font-semibold text-gray-800">AI-Powered</span>
           </div>
-          <div className="floating-card floating-card-2 animate-slide-in-right">
+          <div className="floating-card floating-card-2 animate-slide-in-right hover:border-blue-400 hover:bg-blue-50/50">
             <Zap className="w-8 h-8 text-orange-500" />
             <span className="text-sm font-semibold text-gray-800">Lightning Fast</span>
           </div>
-          <div className="floating-card floating-card-3 animate-slide-in-left-delayed">
+          <div className="floating-card floating-card-3 animate-slide-in-left-delayed hover:border-orange-400 hover:bg-orange-50/50">
             <TrendingUp className="w-8 h-8 text-orange-500" />
             <span className="text-sm font-semibold text-gray-800">Scale Growth</span>
           </div>

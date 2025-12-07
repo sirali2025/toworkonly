@@ -131,8 +131,13 @@ export default function Services() {
   };
 
   return (
-    <section className="py-32 bg-gradient-to-b from-white to-gray-50" id="services">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 bg-gradient-to-b from-white via-blue-50/20 to-gray-50" id="services">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
             AI-Powered <span className="gradient-text">Services</span>
@@ -146,10 +151,10 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100"
+              className="service-card group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100 hover:border-orange-300 hover:bg-gradient-to-br hover:from-white hover:to-orange-50/30"
               onClick={() => toggleExpand(index)}
             >
-              <div className="text-orange-500 mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+              <div className="text-orange-500 mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 group-hover:text-orange-600">
                 {service.icon}
               </div>
 

@@ -467,8 +467,13 @@ export default function Pricing() {
   const [selectedModel, setSelectedModel] = useState<number | null>(null);
 
   return (
-    <section className="py-32 bg-gradient-to-b from-white to-gray-50" id="pricing">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 bg-gradient-to-b from-white via-blue-50/20 to-gray-50" id="pricing">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
             Flexible <span className="gradient-text">Pricing Models</span>
@@ -548,6 +553,7 @@ export default function Pricing() {
           onClose={() => setSelectedModel(null)}
         />
       )}
+      </div>
     </section>
   );
 }

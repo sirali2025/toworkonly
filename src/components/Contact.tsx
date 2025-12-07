@@ -2,8 +2,13 @@ import { Mail, MessageSquare, Send } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-50 to-white" id="contact">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 bg-gradient-to-b from-gray-50 via-blue-50/20 to-white" id="contact">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/2 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
             Let's Build <span className="gradient-text">Together</span>
@@ -66,7 +71,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="p-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl text-white">
+            <div className="p-8 bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-400/50">
               <h3 className="text-2xl font-bold mb-4">Why Choose AKS for AI?</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">

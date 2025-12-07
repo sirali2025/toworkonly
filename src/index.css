@@ -24,6 +24,34 @@
     @apply hover:from-orange-500 hover:via-orange-600 hover:to-orange-700;
     @apply transform hover:scale-105 active:scale-95;
     @apply transition-all duration-300;
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 20px rgba(255, 106, 0, 0.4);
+  }
+
+  .gradient-button:hover {
+    box-shadow: 0 0 40px rgba(10, 31, 68, 0.3), 0 0 60px rgba(255, 106, 0, 0.5);
+  }
+
+  .integration-card {
+    @apply flex flex-col items-center gap-3 p-6 rounded-2xl;
+    @apply bg-white border border-gray-200;
+    @apply hover:border-orange-300 hover:shadow-lg;
+    @apply transition-all duration-300 transform hover:scale-105;
+    @apply cursor-pointer;
+  }
+
+  .integration-card:hover {
+    box-shadow: 0 0 30px rgba(255, 106, 0, 0.2), 0 0 60px rgba(10, 31, 68, 0.1);
+  }
+
+  .integration-logo {
+    @apply w-16 h-16 flex items-center justify-center;
+    @apply bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl;
+    @apply transition-all duration-300;
+  }
+
+  .integration-card:hover .integration-logo {
+    @apply bg-gradient-to-br from-orange-50 to-orange-100;
   }
 
   .logo-reveal {
@@ -397,6 +425,76 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+  }
+
+  @keyframes wave-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(-30px) translateX(0px);
+    }
+    75% {
+      transform: translateY(-20px) translateX(-10px);
+    }
+  }
+
+  @keyframes glow-pulse-blue {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(255, 106, 0, 0.2), 0 0 40px rgba(10, 31, 68, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(255, 106, 0, 0.4), 0 0 80px rgba(10, 31, 68, 0.2);
+    }
+  }
+
+  @keyframes text-reveal {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes scroll-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse-blue {
+    animation: glow-pulse-blue 3s ease-in-out infinite;
+  }
+
+  .animate-text-reveal {
+    animation: text-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-scroll-infinite {
+    animation: scroll-infinite 40s linear infinite;
   }
 }
 
