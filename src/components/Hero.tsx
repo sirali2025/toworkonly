@@ -29,23 +29,23 @@ export default function Hero() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [phrases.length]);
 
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-white to-blue-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#2d2e4a]">
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/40 to-orange-400/30 rounded-full blur-3xl animate-float"
+          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-cyan-400/20 to-purple-600/15 rounded-full blur-3xl animate-float"
           style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}
         ></div>
         <div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-blue-400/15 rounded-full blur-3xl animate-float-delayed"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-cyan-500/15 to-purple-700/10 rounded-full blur-3xl animate-float-delayed"
           style={{ transform: `translateY(${parallaxOffset * 0.5}px)` }}
         ></div>
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-300/10 to-blue-500/15 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-orange-100/15 to-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-cyan-400/10 to-purple-600/15 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-cyan-400/10 to-purple-600/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="cinematic-grid absolute inset-0 opacity-[0.02]"></div>
@@ -78,7 +78,7 @@ export default function Hero() {
           </div>
 
           <h1
-            className="text-6xl md:text-7xl lg:text-8xl font-bold text-black leading-tight tracking-tight animate-slide-in-up"
+            className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight animate-slide-in-up text-white"
             style={{ transform: `translateY(${parallaxOffset * -0.1}px)` }}
           >
             Multiply Your Sales &<br />
@@ -86,14 +86,14 @@ export default function Hero() {
           </h1>
 
           <p
-            className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed animate-slide-in-up-delayed"
+            className="text-xl md:text-2xl text-cyan-100 max-w-3xl mx-auto leading-relaxed animate-slide-in-up-delayed"
             style={{ transform: `translateY(${parallaxOffset * -0.15}px)` }}
           >
             Smart workflows, automation, and AI tools designed to save time, increase revenue, and delight your customers.
           </p>
 
-          <p className="text-sm md:text-base text-gray-600 flex items-center justify-center gap-2 animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
-            <span className="w-2 h-2 bg-gradient-to-r from-orange-500 to-blue-600 rounded-full"></span>
+          <p className="text-sm md:text-base text-cyan-200 flex items-center justify-center gap-2 animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
+            <span className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full"></span>
             Powered by advanced AI automation
           </p>
 
@@ -107,7 +107,7 @@ export default function Hero() {
                   window.location.href = '/contact';
                 }
               }}
-              className="group cta-button gradient-button px-10 py-5 rounded-full text-white font-semibold text-lg flex items-center gap-3 shadow-2xl hover:shadow-orange-500/50 transition-all duration-300"
+              className="group cta-button gradient-button px-10 py-5 rounded-full text-white font-semibold text-lg flex items-center gap-3 shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300"
             >
               Get Started
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -116,17 +116,17 @@ export default function Hero() {
         </div>
 
         <div className="floating-elements">
-          <div className="floating-card floating-card-1 animate-slide-in-left hover:border-orange-400 hover:bg-orange-50/50">
-            <Sparkles className="w-8 h-8 text-orange-500" />
-            <span className="text-sm font-semibold text-gray-800">AI-Powered</span>
+          <div className="floating-card floating-card-1 animate-slide-in-left hover:border-cyan-400">
+            <Sparkles className="w-8 h-8 text-cyan-400" />
+            <span className="text-sm font-semibold text-cyan-100">AI-Powered</span>
           </div>
-          <div className="floating-card floating-card-2 animate-slide-in-right hover:border-blue-400 hover:bg-blue-50/50">
-            <Zap className="w-8 h-8 text-orange-500" />
-            <span className="text-sm font-semibold text-gray-800">Lightning Fast</span>
+          <div className="floating-card floating-card-2 animate-slide-in-right hover:border-purple-400">
+            <Zap className="w-8 h-8 text-purple-400" />
+            <span className="text-sm font-semibold text-cyan-100">Lightning Fast</span>
           </div>
-          <div className="floating-card floating-card-3 animate-slide-in-left-delayed hover:border-orange-400 hover:bg-orange-50/50">
-            <TrendingUp className="w-8 h-8 text-orange-500" />
-            <span className="text-sm font-semibold text-gray-800">Scale Growth</span>
+          <div className="floating-card floating-card-3 animate-slide-in-left-delayed hover:border-cyan-400">
+            <TrendingUp className="w-8 h-8 text-cyan-400" />
+            <span className="text-sm font-semibold text-cyan-100">Scale Growth</span>
           </div>
         </div>
       </div>

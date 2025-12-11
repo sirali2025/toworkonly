@@ -80,6 +80,7 @@ const securityFeatures = [
   }
 ];
 
+/*
 const maintenancePlans = [
   {
     name: 'Basic Maintenance',
@@ -120,6 +121,7 @@ const maintenancePlans = [
     ]
   }
 ];
+*/
 
 export default function HostingPage() {
   const navigate = useNavigate();

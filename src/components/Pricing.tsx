@@ -553,7 +553,6 @@ export default function Pricing() {
           onClose={() => setSelectedModel(null)}
         />
       )}
-      </div>
     </section>
   );
 }
