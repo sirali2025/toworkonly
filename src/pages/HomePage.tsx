@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Hero from '../components/Hero';
+import Hero from '../sections/Hero';
 import Integrations from '../components/Integrations';
 
 const pageTransition = {
