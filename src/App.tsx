@@ -6,16 +6,17 @@ import { useScroll, motion, useSpring } from 'framer-motion';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
+import Hero from './sections/Hero';
 
 // Lazy load heavy sections
-const Services = lazy(() => import('./components/Services'));
-const Pricing = lazy(() => import('./components/Pricing'));
+const Services = lazy(() => import('./sections/Services'));
+const Pricing = lazy(() => import('./sections/Pricing'));
 const Hosting = lazy(() => import('./components/Hosting'));
 const Integrations = lazy(() => import('./components/Integrations'));
 const WhyUs = lazy(() => import('./sections/WhyUs'));
 const Contact = lazy(() => import('./sections/Contact'));
 const About = lazy(() => import('./sections/About'));
+const Agentic = lazy(() => import('./sections/Agentic'));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,12 +68,11 @@ function App() {
           </div>
           
           <Suspense fallback={<LoadingSpinner />}>
-            <WhyUs />
-            <Services />
-            <Integrations />
-            <Pricing />
-            <Hosting />
             <About />
+            <Agentic />
+            <Services />
+            <Pricing />
+            <WhyUs />
             <Contact />
           </Suspense>
         </main>
