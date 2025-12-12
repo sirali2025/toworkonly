@@ -1,25 +1,49 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Determine active section
+      const sections = ['home', 'why-us', 'services', 'pricing', 'hosting', 'about', 'contact'];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
+  const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
-  }, [location]);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-  const isActive = (path: string) => location.pathname === path;
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'why-us', label: 'Why Us' },
+    { id: 'services', label: 'Services' },
+    { id: 'pricing', label: 'Pricing' },
+    { id: 'hosting', label: 'Hosting' },
+    { id: 'about', label: 'About' },
+    { id: 'contact', label: 'Contact' },
+  ];
 
   return (
     <header
@@ -31,7 +55,10 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 cursor-pointer group">
+          <div 
+            onClick={() => scrollToSection('home')} 
+            className="flex items-center gap-3 cursor-pointer group"
+          >
             <img
               src="/ChatGPT_Image_22_oct._2025__15_51_16-removebg-preview.png"
               alt="AKS for AI"
@@ -40,54 +67,20 @@ export default function Header() {
             <span className="text-2xl font-bold text-black group-hover:gradient-text transition-all duration-300">
               AKS for AI
             </span>
-          </Link>
+          </div>
 
           <nav className="hidden lg:flex items-center gap-8">
-            <Link
-              to="/"
-              className={`nav-link ${isActive('/') ? 'active' : ''}`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/services"
-              className={`nav-link ${isActive('/services') ? 'active' : ''}`}
-            >
-              Services
-            </Link>
-            <Link
-              to="/pricing"
-              className={`nav-link ${isActive('/pricing') ? 'active' : ''}`}
-            >
-              Pricing
-            </Link>
-            <Link
-              to="/hosting"
-              className={`nav-link ${isActive('/hosting') ? 'active' : ''}`}
-            >
-              Hosting
-            </Link>
-            <Link
-              to="/about"
-              className={`nav-link ${isActive('/about') ? 'active' : ''}`}
-            >
-              About
-            </Link>
-            <Link
-              to="/contact"
-              className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
-            >
-              Contact
-            </Link>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+              >
+                {item.label}
+              </button>
+            ))}
             <button
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/contact';
-                }
-              }}
+              onClick={() => scrollToSection('contact')}
               className="gradient-button px-8 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-orange-500/50 transition-all duration-300"
             >
               Get Started
@@ -104,21 +97,17 @@ export default function Header() {
 
         {isMobileMenuOpen && (
           <nav className="lg:hidden mt-6 pb-6 space-y-4 animate-fade-in">
-            <Link to="/" className="block w-full text-left nav-link py-2">Home</Link>
-            <Link to="/services" className="block w-full text-left nav-link py-2">Services</Link>
-            <Link to="/pricing" className="block w-full text-left nav-link py-2">Pricing</Link>
-            <Link to="/hosting" className="block w-full text-left nav-link py-2">Hosting</Link>
-            <Link to="/about" className="block w-full text-left nav-link py-2">About</Link>
-            <Link to="/contact" className="block w-full text-left nav-link py-2">Contact</Link>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`block w-full text-left nav-link py-2 ${activeSection === item.id ? 'active' : ''}`}
+              >
+                {item.label}
+              </button>
+            ))}
             <button
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/contact';
-                }
-              }}
+              onClick={() => scrollToSection('contact')}
               className="w-full gradient-button px-8 py-3 rounded-full text-white font-semibold shadow-lg block text-center"
             >
               Get Started

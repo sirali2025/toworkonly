@@ -1,13 +1,19 @@
-import { Link } from 'react-router-dom';
 import { Linkedin, Mail, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-black text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
+            <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 mb-6 group text-left">
               <img
                 src="/ChatGPT_Image_22_oct._2025__15_51_16-removebg-preview.png"
                 alt="AKS for AI"
@@ -16,7 +22,7 @@ export default function Footer() {
               <span className="text-2xl font-bold group-hover:text-orange-500 transition-colors duration-300">
                 AKS for AI
               </span>
-            </Link>
+            </button>
             <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
               Transforming businesses through intelligent automation and AI-powered solutions. Your strategic partner for sustainable growth.
             </p>
@@ -76,26 +82,13 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-3 text-gray-400">
-              <li>
-                <Link to="/services" className="hover:text-orange-500 transition-colors duration-300">
-                  Sales & Marketing
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-orange-500 transition-colors duration-300">
-                  Customer Support
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-orange-500 transition-colors duration-300">
-                  Content Creation
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-orange-500 transition-colors duration-300">
-                  Business Insights
-                </Link>
-              </li>
+              {['Sales & Marketing', 'Customer Support', 'Content Creation', 'Business Insights'].map((item) => (
+                  <li key={item}>
+                    <button onClick={() => scrollToSection('services')} className="hover:text-orange-500 transition-colors duration-300 text-left">
+                      {item}
+                    </button>
+                  </li>
+              ))}
             </ul>
           </div>
 
@@ -103,24 +96,24 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Company</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link to="/hosting" className="hover:text-orange-500 transition-colors duration-300">
+                <button onClick={() => scrollToSection('hosting')} className="hover:text-orange-500 transition-colors duration-300 text-left">
                   Hosting Options
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/about" className="hover:text-orange-500 transition-colors duration-300">
+                <button onClick={() => scrollToSection('about')} className="hover:text-orange-500 transition-colors duration-300 text-left">
                   About Us
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-orange-500 transition-colors duration-300">
+                <button onClick={() => scrollToSection('pricing')} className="hover:text-orange-500 transition-colors duration-300 text-left">
                   Pricing Models
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-orange-500 transition-colors duration-300">
+                <button onClick={() => scrollToSection('contact')} className="hover:text-orange-500 transition-colors duration-300 text-left">
                   Contact Us
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

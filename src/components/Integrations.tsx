@@ -27,7 +27,7 @@ const integrations = [
 
 export default function Integrations() {
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-b from-white via-blue-50/30 to-white overflow-hidden">
+    <section className="relative py-24 px-6 bg-gradient-to-b from-white via-blue-50/30 to-white overflow-hidden" id="integrations">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"></div>

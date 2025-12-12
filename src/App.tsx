@@ -1,29 +1,82 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { useEffect, Suspense, lazy } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useScroll, motion, useSpring } from 'framer-motion';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import PricingPage from './pages/PricingPage';
-import AboutPage from './pages/AboutPage';
-import HostingPage from './pages/HostingPage';
-import ContactPage from './pages/ContactPage';
+import Hero from './components/Hero';
+
+// Lazy load heavy sections
+const Services = lazy(() => import('./components/Services'));
+const Pricing = lazy(() => import('./components/Pricing'));
+const Hosting = lazy(() => import('./components/Hosting'));
+const Integrations = lazy(() => import('./components/Integrations'));
+const WhyUs = lazy(() => import('./sections/WhyUs'));
+const Contact = lazy(() => import('./sections/Contact'));
+const About = lazy(() => import('./sections/About'));
+
+gsap.registerPlugin(ScrollTrigger);
+
+function LoadingSpinner() {
+  return (
+    <div className="flex items-center justify-center py-20">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+    </div>
+  );
+}
 
 function App() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  useEffect(() => {
+    // Performance optimization: ScrollTrigger batching/refresh
+    ScrollTrigger.config({ limitCallbacks: true });
+    
+    // Refresh ScrollTrigger on resize
+    const handleResize = () => {
+        ScrollTrigger.refresh();
+    };
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white relative selection:bg-orange-200 selection:text-orange-900">
+        {/* Progress Indicator */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-orange-600 origin-left z-[100]"
+          style={{ scaleX }}
+        />
+
         <Header />
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/hosting" element={<HostingPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </AnimatePresence>
+        
+        <main>
+          <div id="home">
+            <Hero />
+          </div>
+          
+          <Suspense fallback={<LoadingSpinner />}>
+            <WhyUs />
+            <Services />
+            <Integrations />
+            <Pricing />
+            <Hosting />
+            <About />
+            <Contact />
+          </Suspense>
+        </main>
+
         <Footer />
       </div>
     </Router>
