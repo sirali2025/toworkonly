@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { Mail, MessageSquare, Send } from 'lucide-react';
 
 const pageTransition = {
@@ -10,28 +9,6 @@ const pageTransition = {
 };
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: ''
-  });
-
-  const [isFocused, setIsFocused] = useState<string | null>(null);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <motion.div {...pageTransition}>
       <section className="pt-32 pb-20 bg-gradient-to-b from-white via-orange-50/30 to-white">

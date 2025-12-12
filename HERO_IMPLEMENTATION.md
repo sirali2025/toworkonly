@@ -67,13 +67,15 @@ New animations added to `src/index.css`:
 ## Dependencies Added
 ```json
 {
-  "three": "^0.x.x",
-  "@react-three/fiber": "^8.x.x",
-  "@react-three/drei": "^9.x.x",
-  "gsap": "^3.x.x",
-  "@types/three": "^0.x.x"
+  "three": "^0.169.0",
+  "@react-three/fiber": "^8.17.10",
+  "@react-three/drei": "^9.114.3",
+  "gsap": "^3.14.1",
+  "@types/three": "^0.169.0"
 }
 ```
+
+**Note**: These versions are compatible with React 18. If upgrading to React 19+, you can use later versions of @react-three/fiber and @react-three/drei.
 
 ## Integration
 The Hero is used in `src/pages/HomePage.tsx`:
