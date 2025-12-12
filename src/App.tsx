@@ -11,8 +11,6 @@ import Hero from './sections/Hero';
 // Lazy load heavy sections
 const Services = lazy(() => import('./sections/Services'));
 const Pricing = lazy(() => import('./sections/Pricing'));
-const Hosting = lazy(() => import('./components/Hosting'));
-const Integrations = lazy(() => import('./components/Integrations'));
 const WhyUs = lazy(() => import('./sections/WhyUs'));
 const Contact = lazy(() => import('./sections/Contact'));
 const About = lazy(() => import('./sections/About'));
