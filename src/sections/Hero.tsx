@@ -135,7 +135,7 @@ export default function Hero() {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-royal-blue via-[#0A1F44] to-black">
         <div className="absolute inset-0 bg-gradient-radial from-cyan-500/10 via-transparent to-transparent opacity-50"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/5 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FF00FB]/5 via-transparent to-transparent"></div>
       </div>
 
       <div className="absolute inset-0 opacity-[0.03]">
@@ -173,7 +173,7 @@ export default function Hero() {
 
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl animate-pulse-slow-delayed"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FF00FB]/15 rounded-full blur-3xl animate-pulse-slow-delayed"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl"></div>
       </div>
 
@@ -197,7 +197,7 @@ export default function Hero() {
             <span className="block mb-4">
               The New Era of
             </span>
-            <span className="block bg-gradient-to-r from-cyan-400 via-cyan-300 to-orange-400 bg-clip-text text-transparent animate-gradient-shift">
+            <span className="block bg-gradient-to-r from-cyan-400 via-cyan-300 to-[#FF00FB] bg-clip-text text-transparent animate-gradient-shift">
               Autonomous Intelligence
             </span>
           </h1>
@@ -225,7 +225,7 @@ export default function Hero() {
               onClick={scrollToContact}
               className="group relative px-10 py-5 rounded-full text-white font-bold text-lg flex items-center gap-3 overflow-hidden transform transition-all duration-300 hover:scale-105 active:scale-95"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-cyan-400 to-orange-500 animate-gradient-shift"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-cyan-400 to-[#FF00FB] animate-gradient-shift"></div>
               <div className="absolute inset-0 bg-cyan-400 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
               <span className="relative z-10">Experience the Future</span>
               <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -249,7 +249,7 @@ export default function Hero() {
         <div className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
           <span className="text-cyan-400 text-sm font-semibold tracking-wider">SCROLL</span>
           <div className="w-6 h-10 border-2 border-cyan-400 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full animate-scroll-bounce"></div>
+            <div className="w-1.5 h-3 bg-gradient-to-b from-cyan-400 to-[#FF00FB] rounded-full animate-scroll-bounce"></div>
           </div>
         </div>
       </div>

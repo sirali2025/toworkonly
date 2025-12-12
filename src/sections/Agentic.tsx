@@ -32,7 +32,7 @@ const pillars: Pillar[] = [
     title: 'Reactive Processing',
     description: 'Lightning-fast inference and real-time responsiveness powered by optimized neural architectures that execute at edge speeds.',
     icon: <Zap className="w-12 h-12" />,
-    accent: 'from-orange-500 to-yellow-400',
+    accent: 'from-[#FF00FB] to-[#CC00C9]',
     metrics: [
       { label: 'Throughput', value: '10K req/s' },
       { label: 'Accuracy', value: '99.2%' },
@@ -201,7 +201,7 @@ const PillarCard = ({ pillar, index }: { pillar: Pillar; index: number }) => {
             ))}
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF00FB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
       </div>
 
@@ -278,7 +278,7 @@ export default function Agentic() {
         }
 
         if (particle.alpha > 0) {
-          ctx.fillStyle = `rgba(255, 165, 0, ${particle.alpha * 0.4})`;
+          ctx.fillStyle = `rgba(255, 0, 251, ${particle.alpha * 0.4})`;
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
           ctx.fill();
@@ -322,7 +322,7 @@ export default function Agentic() {
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-gradient-to-br from-orange-500/10 to-transparent rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-gradient-to-br from-[#FF00FB]/10 to-transparent rounded-full blur-3xl animate-float-delayed"></div>
         <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/5 to-transparent rounded-full blur-3xl"></div>
       </div>
 

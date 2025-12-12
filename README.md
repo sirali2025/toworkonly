@@ -65,7 +65,7 @@ npm run preview
 
 - **Royal Blue**: `#0A1F44` - Primary background
 - **Electric Cyan**: `#00FFFF` - Holographic accents
-- **Orange**: `#FF6A00` - CTAs and highlights
+- **Magenta**: `#FF00FB` - CTAs and highlights
 
 ## License
 

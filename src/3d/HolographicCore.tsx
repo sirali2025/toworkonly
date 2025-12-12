@@ -122,7 +122,7 @@ function KineticLights() {
   return (
     <>
       <pointLight ref={light1Ref} color="#00FFFF" intensity={1} distance={10} />
-      <pointLight ref={light2Ref} color="#FF6A00" intensity={1} distance={10} />
+      <pointLight ref={light2Ref} color="#FF00FB" intensity={1} distance={10} />
       <spotLight
         ref={light3Ref}
         color="#00FFFF"
@@ -151,8 +151,8 @@ function IcosahedronRing({ position }: { position: [number, number, number] }) {
     <mesh ref={meshRef} position={position}>
       <icosahedronGeometry args={[0.8, 1]} />
       <meshStandardMaterial
-        color="#FF6A00"
-        emissive="#FF6A00"
+        color="#FF00FB"
+        emissive="#FF00FB"
         emissiveIntensity={0.7}
         transparent
         opacity={0.4}
