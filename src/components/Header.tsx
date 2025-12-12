@@ -1,24 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useScrollToSection } from '../hooks/useSmoothScroll';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const scrollToSection = useScrollToSection();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
-      // Update active section based on scroll position
-      const sections = ['home', 'services', 'hosting', 'pricing', 'integrations', 'contact'];
+      
+      // Determine active section
+      const sections = ['home', 'why-us', 'services', 'pricing', 'hosting', 'about', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          if (rect.top <= 200 && rect.bottom >= 200) {
             setActiveSection(section);
             break;
           }
@@ -29,17 +27,21 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (sectionId: string) => {
-    scrollToSection(sectionId);
+  const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  const navLinks = [
+  const navItems = [
     { id: 'home', label: 'Home' },
+    { id: 'why-us', label: 'Why Us' },
     { id: 'services', label: 'Services' },
-    { id: 'hosting', label: 'Hosting' },
     { id: 'pricing', label: 'Pricing' },
-    { id: 'integrations', label: 'Integrations' },
+    { id: 'hosting', label: 'Hosting' },
+    { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -47,14 +49,14 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-gradient-to-b from-[#0a0e27]/95 to-[#1a1f3a]/90 backdrop-blur-md shadow-lg border-b border-cyan-500/20 py-3'
-          : 'bg-gradient-to-b from-[#0a0e27]/80 to-[#1a1f3a]/70 backdrop-blur-sm shadow-md border-b border-cyan-500/10 py-4'
+          ? 'bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-md shadow-lg py-4 border-b border-orange-200/30'
+          : 'bg-gradient-to-b from-white/90 to-white/80 backdrop-blur-sm shadow-md py-4 border-b border-orange-100/20'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
-          <button
-            onClick={() => handleNavClick('home')}
+          <div 
+            onClick={() => scrollToSection('home')} 
             className="flex items-center gap-3 cursor-pointer group"
           >
             <img
@@ -62,31 +64,31 @@ export default function Header() {
               alt="AKS for AI"
               className="h-12 w-12 object-contain transform group-hover:scale-110 transition-transform duration-300"
             />
-            <span className="text-2xl font-bold text-cyan-400 group-hover:text-cyan-300 transition-all duration-300">
+            <span className="text-2xl font-bold text-black group-hover:gradient-text transition-all duration-300">
               AKS for AI
             </span>
-          </button>
+          </div>
 
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map(({ id, label }) => (
+            {navItems.map((item) => (
               <button
-                key={id}
-                onClick={() => handleNavClick(id)}
-                className={`nav-link ${activeSection === id ? 'active' : ''}`}
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
               >
-                {label}
+                {item.label}
               </button>
             ))}
             <button
-              onClick={() => handleNavClick('contact')}
-              className="gradient-button px-8 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+              onClick={() => scrollToSection('contact')}
+              className="gradient-button px-8 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-orange-500/50 transition-all duration-300"
             >
               Get Started
             </button>
           </nav>
 
           <button
-            className="lg:hidden p-2 text-cyan-400 hover:bg-cyan-400/10 rounded-lg transition-colors duration-300"
+            className="lg:hidden p-2 text-black hover:bg-orange-50 rounded-lg transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -95,19 +97,17 @@ export default function Header() {
 
         {isMobileMenuOpen && (
           <nav className="lg:hidden mt-6 pb-6 space-y-4 animate-fade-in">
-            {navLinks.map(({ id, label }) => (
+            {navItems.map((item) => (
               <button
-                key={id}
-                onClick={() => handleNavClick(id)}
-                className={`block w-full text-left nav-link py-2 ${
-                  activeSection === id ? 'active' : ''
-                }`}
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`block w-full text-left nav-link py-2 ${activeSection === item.id ? 'active' : ''}`}
               >
-                {label}
+                {item.label}
               </button>
             ))}
             <button
-              onClick={() => handleNavClick('contact')}
+              onClick={() => scrollToSection('contact')}
               className="w-full gradient-button px-8 py-3 rounded-full text-white font-semibold shadow-lg block text-center"
             >
               Get Started

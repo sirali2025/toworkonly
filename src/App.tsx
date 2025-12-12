@@ -1,89 +1,85 @@
-import { useEffect } from 'react';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Pricing from './components/Pricing';
-import Hosting from './components/Hosting';
-import Integrations from './components/Integrations';
-import Contact from './components/Contact';
+import { useEffect, Suspense, lazy } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useScroll, motion, useSpring } from 'framer-motion';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ScrollSection from './components/ScrollSection';
-import { useSmoothScroll } from './hooks/useSmoothScroll';
+import Hero from './components/Hero';
+
+// Lazy load heavy sections
+const Services = lazy(() => import('./components/Services'));
+const Pricing = lazy(() => import('./components/Pricing'));
+const Hosting = lazy(() => import('./components/Hosting'));
+const Integrations = lazy(() => import('./components/Integrations'));
+const WhyUs = lazy(() => import('./sections/WhyUs'));
+const Contact = lazy(() => import('./sections/Contact'));
+const About = lazy(() => import('./sections/About'));
+
+gsap.registerPlugin(ScrollTrigger);
+
+function LoadingSpinner() {
+  return (
+    <div className="flex items-center justify-center py-20">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+    </div>
+  );
+}
 
 function App() {
-  useSmoothScroll();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
-    // Initialize GSAP and animations when component mounts
-    // This allows for future scroll-triggered animations
+    // Performance optimization: ScrollTrigger batching/refresh
+    ScrollTrigger.config({ limitCallbacks: true });
+    
+    // Refresh ScrollTrigger on resize
+    const handleResize = () => {
+        ScrollTrigger.refresh();
+    };
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-[#0a0e27]">
-      {/* Global Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#2d2e4a]" />
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'radial-gradient(at 20% 50%, rgba(139, 0, 255, 0.08) 0px, transparent 50%), radial-gradient(at 80% 50%, rgba(0, 217, 255, 0.06) 0px, transparent 50%)',
-          }}
+    <Router>
+      <div className="min-h-screen bg-white relative selection:bg-orange-200 selection:text-orange-900">
+        {/* Progress Indicator */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-orange-600 origin-left z-[100]"
+          style={{ scaleX }}
         />
-      </div>
 
-      {/* Fixed Header */}
-      <Header />
-
-      {/* Main Content */}
-      <main className="relative z-10">
-        {/* Hero Section */}
-        <ScrollSection id="home">
-          <Hero />
-        </ScrollSection>
-
-        {/* Services Section */}
-        <ScrollSection id="services" className="bg-gradient-to-b from-[#1a1f3a] to-[#2d2e4a]">
-          <div className="max-w-7xl mx-auto px-6">
+        <Header />
+        
+        <main>
+          <div id="home">
+            <Hero />
+          </div>
+          
+          <Suspense fallback={<LoadingSpinner />}>
+            <WhyUs />
             <Services />
-          </div>
-        </ScrollSection>
-
-        {/* Hosting Section */}
-        <ScrollSection id="hosting" className="bg-gradient-to-b from-[#2d2e4a] to-[#1a1f3a]">
-          <div className="max-w-7xl mx-auto px-6">
-            <Hosting />
-          </div>
-        </ScrollSection>
-
-        {/* Pricing Section */}
-        <ScrollSection id="pricing" className="bg-gradient-to-b from-[#1a1f3a] to-[#0a0e27]">
-          <div className="max-w-7xl mx-auto px-6">
-            <Pricing />
-          </div>
-        </ScrollSection>
-
-        {/* Integrations Section */}
-        <ScrollSection
-          id="integrations"
-          className="bg-gradient-to-b from-[#0a0e27] to-[#1a1f3a]"
-        >
-          <div className="max-w-7xl mx-auto px-6">
             <Integrations />
-          </div>
-        </ScrollSection>
-
-        {/* Contact Section */}
-        <ScrollSection id="contact" className="bg-gradient-to-b from-[#1a1f3a] to-[#0a0e27]">
-          <div className="max-w-7xl mx-auto px-6">
+            <Pricing />
+            <Hosting />
+            <About />
             <Contact />
-          </div>
-        </ScrollSection>
-      </main>
+          </Suspense>
+        </main>
 
-      {/* Fixed Footer */}
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
