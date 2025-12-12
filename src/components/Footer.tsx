@@ -19,7 +19,7 @@ export default function Footer() {
                 alt="AKS for AI"
                 className="h-10 w-10 object-contain brightness-0 invert group-hover:scale-110 transition-transform duration-300"
               />
-              <span className="text-2xl font-bold group-hover:text-orange-500 transition-colors duration-300">
+              <span className="text-2xl font-bold group-hover:text-[#FF00FB] transition-colors duration-300">
                 AKS for AI
               </span>
             </button>
@@ -84,7 +84,7 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-400">
               {['Sales & Marketing', 'Customer Support', 'Content Creation', 'Business Insights'].map((item) => (
                   <li key={item}>
-                    <button onClick={() => scrollToSection('services')} className="hover:text-orange-500 transition-colors duration-300 text-left">
+                    <button onClick={() => scrollToSection('services')} className="hover:text-[#FF00FB] transition-colors duration-300 text-left">
                       {item}
                     </button>
                   </li>
@@ -96,22 +96,22 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Company</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <button onClick={() => scrollToSection('hosting')} className="hover:text-orange-500 transition-colors duration-300 text-left">
+                <button onClick={() => scrollToSection('hosting')} className="hover:text-[#FF00FB] transition-colors duration-300 text-left">
                   Hosting Options
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('about')} className="hover:text-orange-500 transition-colors duration-300 text-left">
+                <button onClick={() => scrollToSection('about')} className="hover:text-[#FF00FB] transition-colors duration-300 text-left">
                   About Us
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('pricing')} className="hover:text-orange-500 transition-colors duration-300 text-left">
+                <button onClick={() => scrollToSection('pricing')} className="hover:text-[#FF00FB] transition-colors duration-300 text-left">
                   Pricing Models
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact')} className="hover:text-orange-500 transition-colors duration-300 text-left">
+                <button onClick={() => scrollToSection('contact')} className="hover:text-[#FF00FB] transition-colors duration-300 text-left">
                   Contact Us
                 </button>
               </li>

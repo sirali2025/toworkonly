@@ -6,6 +6,7 @@ export default {
       colors: {
         'royal-blue': '#0A1F44',
         'electric-cyan': '#00FFFF',
+        'magenta': '#FF00FB',
       },
     },
   },

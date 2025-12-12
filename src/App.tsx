@@ -21,7 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 function LoadingSpinner() {
   return (
     <div className="flex items-center justify-center py-20">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF00FB]"></div>
     </div>
   );
 }
@@ -51,10 +51,10 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-white relative selection:bg-orange-200 selection:text-orange-900">
+      <div className="min-h-screen bg-white relative selection:bg-[#FF00FB]/20 selection:text-[#FF00FB]">
         {/* Progress Indicator */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-orange-600 origin-left z-[100]"
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF00FB] to-[#CC00C9] origin-left z-[100]"
           style={{ scaleX }}
         />
 

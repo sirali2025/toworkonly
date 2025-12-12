@@ -31,7 +31,7 @@ const benefits = [
 
 export default function About() {
   return (
-    <section id="about" className="py-32 bg-gradient-to-b from-white via-orange-50/30 to-white">
+    <section id="about" className="py-32 bg-gradient-to-b from-white via-[#FF00FB]/5 to-white">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -78,7 +78,7 @@ export default function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl p-12 shadow-2xl">
+            <div className="bg-gradient-to-br from-[#FF00FB] to-[#CC00C9] rounded-3xl p-12 shadow-2xl">
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white/20 rounded-2xl">
@@ -86,7 +86,7 @@ export default function About() {
                   </div>
                   <div className="text-white">
                     <h3 className="text-2xl font-bold mb-2">Built on Trust</h3>
-                    <p className="text-orange-100">
+                    <p className="text-white/90">
                       Every partnership begins with trust. We're transparent about our processes, results, and pricing.
                     </p>
                   </div>
@@ -97,14 +97,14 @@ export default function About() {
                   </div>
                   <div className="text-white">
                     <h3 className="text-2xl font-bold mb-2">Innovation First</h3>
-                    <p className="text-orange-100">
+                    <p className="text-white/90">
                       We stay at the forefront of AI technology, ensuring you always have access to the latest innovations.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-gradient-to-br from-orange-200/30 to-orange-400/20 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-gradient-to-br from-[#FF00FB]/30 to-[#CC00C9]/20 rounded-full blur-3xl -z-10"></div>
           </motion.div>
         </div>
 
@@ -129,7 +129,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group"
               >
-                <div className="text-orange-500 mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="text-[#FF00FB] mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   {benefit.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3 group-hover:gradient-text transition-all duration-300">
@@ -163,7 +163,7 @@ export default function About() {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="gradient-button px-10 py-4 rounded-full text-white font-semibold text-lg shadow-xl hover:shadow-orange-500/50 transition-all duration-300"
+            className="gradient-button px-10 py-4 rounded-full text-white font-semibold text-lg shadow-xl hover:shadow-[#FF00FB]/50 transition-all duration-300"
           >
             Start Your Journey
           </button>

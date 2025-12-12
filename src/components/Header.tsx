@@ -49,8 +49,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-md shadow-lg py-4 border-b border-orange-200/30'
-          : 'bg-gradient-to-b from-white/90 to-white/80 backdrop-blur-sm shadow-md py-4 border-b border-orange-100/20'
+          ? 'bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-md shadow-lg py-4 border-b border-[#FF00FB]/30'
+          : 'bg-gradient-to-b from-white/90 to-white/80 backdrop-blur-sm shadow-md py-4 border-b border-[#FF00FB]/20'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -81,14 +81,14 @@ export default function Header() {
             ))}
             <button
               onClick={() => scrollToSection('contact')}
-              className="gradient-button px-8 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-orange-500/50 transition-all duration-300"
+              className="gradient-button px-8 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-[#FF00FB]/50 transition-all duration-300"
             >
               Get Started
             </button>
           </nav>
 
           <button
-            className="lg:hidden p-2 text-black hover:bg-orange-50 rounded-lg transition-colors duration-300"
+            className="lg:hidden p-2 text-black hover:bg-[#FF00FB]/10 rounded-lg transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

@@ -29,7 +29,7 @@ export default function Integrations() {
   return (
     <section className="relative py-24 px-6 bg-gradient-to-b from-white via-blue-50/30 to-white overflow-hidden" id="integrations">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#FF00FB]/20 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"></div>
       </div>
 
@@ -54,10 +54,10 @@ export default function Integrations() {
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <div className="integration-logo">
-                  <Icon className="w-8 h-8 text-orange-500 group-hover:text-white transition-colors" />
+                  <Icon className="w-8 h-8 text-[#FF00FB] group-hover:text-white transition-colors" />
                 </div>
                 <div className="text-center">
-                  <h3 className="font-semibold text-gray-900 text-sm group-hover:text-orange-600 transition-colors">
+                  <h3 className="font-semibold text-gray-900 text-sm group-hover:text-[#FF00FB] transition-colors">
                     {integration.name}
                   </h3>
                   <p className="text-xs text-gray-600 mt-1">
