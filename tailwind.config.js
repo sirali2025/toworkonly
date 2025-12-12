@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         'royal-blue': '#0A1F44',
+        'electric-cyan': '#00FFFF',
       },
     },
   },

@@ -80,48 +80,47 @@ const securityFeatures = [
   }
 ];
 
-/*
-const maintenancePlans = [
-  {
-    name: 'Basic Maintenance',
-    price: '$150',
-    period: '/month',
-    features: [
-      'Monthly security updates',
-      'Performance monitoring',
-      'Email support',
-      'Standard backup retention (7 days)'
-    ]
-  },
-  {
-    name: 'Premium Maintenance',
-    price: '$400',
-    period: '/month',
-    features: [
-      'Weekly security updates',
-      'Real-time monitoring & alerts',
-      'Priority support',
-      'Extended backup retention (30 days)',
-      'Performance optimization',
-      'Quarterly security audits'
-    ]
-  },
-  {
-    name: 'Enterprise Maintenance',
-    price: 'Custom',
-    period: '',
-    features: [
-      'Daily security updates',
-      '24/7 dedicated monitoring',
-      'White-glove support',
-      'Long-term backup retention (90+ days)',
-      'Continuous optimization',
-      'Monthly security audits',
-      'Dedicated DevOps engineer'
-    ]
-  }
-];
-*/
+// Maintenance plans for future use
+// const maintenancePlans = [
+//   {
+//     name: 'Basic Maintenance',
+//     price: '$150',
+//     period: '/month',
+//     features: [
+//       'Monthly security updates',
+//       'Performance monitoring',
+//       'Email support',
+//       'Standard backup retention (7 days)'
+//     ]
+//   },
+//   {
+//     name: 'Premium Maintenance',
+//     price: '$400',
+//     period: '/month',
+//     features: [
+//       'Weekly security updates',
+//       'Real-time monitoring & alerts',
+//       'Priority support',
+//       'Extended backup retention (30 days)',
+//       'Performance optimization',
+//       'Quarterly security audits'
+//     ]
+//   },
+//   {
+//     name: 'Enterprise Maintenance',
+//     price: 'Custom',
+//     period: '',
+//     features: [
+//       'Daily security updates',
+//       '24/7 dedicated monitoring',
+//       'White-glove support',
+//       'Long-term backup retention (90+ days)',
+//       'Continuous optimization',
+//       'Monthly security audits',
+//       'Dedicated DevOps engineer'
+//     ]
+//   }
+// ];
 
 export default function HostingPage() {
   const navigate = useNavigate();
